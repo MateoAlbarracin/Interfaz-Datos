@@ -1,0 +1,159 @@
+<div class="container">
+  <div class="text-center">
+    <h1>~Interfaz~</h1>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-sm-8">
+      <form class="form-horizontal" class="formulario_carga">
+        <h3>Cargar Datos:</h3>
+        <div class="form-group">
+          <label for="endpoint" class="col-sm-2">Endpoint</label>
+          <input type="text" class="form-control" id="endpoint" name="endpoint" [(ngModel)]="model.endpoint" class="col-sm-10">
+        </div>
+        <div class="form-group">
+          <label for="metodo" class="col-sm-2">Metodo</label>
+          <input type="text" class="form-control" id="metodo" name="metodo" [(ngModel)]="model.metodo" class="col-sm-10">
+        </div>
+        <div class="form-group">
+          <label for="seguridad" class="col-sm-2">Seguridad</label>
+          <input type="text" class="form-control" id="seguridad" name="seguridad" [(ngModel)]="model.seguridad" class="col-sm-10">
+        </div>
+        <div class="form-group">
+          <label for="tabla" class="col-sm-2">Tabla</label>
+          <input type="text" class="form-control" id="tabla" name="tabla" [(ngModel)]="model.tabla" class="col-sm-10">
+        </div>
+          
+        <button type="submit" class="btn btn-primary" (click)="addData()">Cargar</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAw1BMVEX///8AtYwLMz8ALzsALDn7/Pzf4+Q5U1xDWWHN09UFMT0AuZJccXcAto0AITAAsIPr7e6T6d1c4M9ygohjdnwfQk3DycyttrrW3N7I8erB7eSo5dee4dF5hotQZm4AvpnR7+eYpanz9PUAyavz/Pu4wcTj+fYAw6GHlpzl6OqfrLAAFymh6NwA0LZp3sx43cw6yq5TzLGz8Odn0LiJ49SP3MlF1r44wJ/d9/M8VV1Zy7CCkZcnR1Fy1sCS3c165tg82sV23KNpAAAGHUlEQVR4nO3ba1+iSgAGcOSiArFSiqR5SQQ1j62m1bards73/1QHBQxhBgWGrP09/ze7VLQ8O8Pc5TgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuDR9cHU1KfsXVvjiL/FQ5wVR6N3uL6SG4PIv/hLWgBd4XhHq1u5q+g/v+tG1sv0y6X528zjsq6VSSe0PH38uRzbLZ83moS7uQgnVfbk1vIvKQ/pfJNmt+VCt1UofaqX+8PltxPqRUyr7oary7imv/ISp30T7vrNQw+kOKdXHuzepgAc/G5uErfehRojnURedtyIe/UwsEo7eF/R8+4xP15d7IRkkXK7UxHw7/e3FijF3Qvt6fDLfzmJWWIZkeRPa8/5ZAd1ifC4uRZKcCUer5DcwTJ1f5GXMl3D0ROohaLTtJSLmSjhapci3i/hygYh5EtrbdAHdivr++Z1/noTP57+Dgf6y2DgEORIuT3eDceNP7xezJxwNMwQslV6LThSVPeE8UkdrJS2uFG9rr4uOFKHXMyZsR3p6dd4mGcYijotrT62y7JhR06qQnNAqN4/vcvT916PtKKUjsMfRiNpNMfF0p1s1xB9x+4DUhLeT37G7Ko77jVm0CO8o//BrrBB/FdHY6GZPEQWFpyIntKabH/G7xIrsdoXRnmI7kkjeYmVYUn8yzyfJDUWkp6MmtAYG+bYJ1/oVe+7VHQmpwX1ivbAhOVUxofjoCZu/yQGFNdeJ94XkESrpq33WEymncqIAKQn1tUD8WYUfpB2QHtPmbAPK4ZJQYugJ5apAuk0Qe7et82a9NH+YtjX+U++IIm/EUBNKpuHHV47va8jcXZYB24cx09GpGQR0/+/XptOMMHu0/tAaBDca9fBtssXZL7kCltQOw4BWUIQib+qE7z9QR23BaygY0+iUJ99ryHie6PBeVROr5M0I+rhU7/r/N5PYTW/ZBt0fVgz7i4lf0zZN8vcTEvojVsKd9/kaGrdHZNfU6Fd+VZtQNltOJyQU/j1pfU1TkxwPgYYtZgnliteQVGTKD2RLSGhKf82vEx0NgsZtZgmdzf41FBu03aRsCQnLF6caj7ZWTMKp16dRKymzhNS5xUG/VkhCv6HhYw1+gFktPbUWOjuqpey6/PW+CBXDKTyhurhJdHTLkF0ZdoXEvoJlW1pLdvSzDNvSrpjclGZM+IX6w2IS5h7TbNmNaYqppV9pXOqNnpWNwzSh/Z4vIctJvtdbKLzJtC3lludui5KxnB8OvKmFMqD2+L0sCVuLXAlZTi38ebrYJc0Nd/ylCu+k19kJ0++rhaks97ubm1AA4g/4Q/OrcpqE3Iy01rYfy2kl78/9X0j7Foy32MpeEVFfRGnqr8XU9VQJ49VUnbcI2o+EiH9Y7lxI9WCKT95s8V9DdyIvpUrIvUQLkbb0Et+aUf9lk81nBqsYddKbqE+8gIox3V2mSNiOLHqn2LdYsN18eqgGK1EN2YrUVKu89vP7g54UCbnoxgVl36LVj+09sS1Ct78IVhPFytqUb0OcQS/YdhEaVtqE0Z0LddUhiVdSxkXoFuJhTV8QjEq1d1DdHLZr3IaIS5uQuz7rnEIsoMb+rILJfyzOC4IYEELbZmLPSp/QXqQ5LXRIvGUekLMmSRuH++CiPzBPlZB7yzB0qw2LODKsTxTyJlJQe8UBl5DwN/Vc+zL9eZoxu6lv2G6nk1qMiqgMDm1s+Jz3oQzpxxbe09ZTld3qRYRcNxSBUFndL/K90MzK2W3rK+J+ZU4yjf0p/i79oJYUPXFyQv/kglx2VnPd2xju84of3MRGpTE9Ggl0DTdzwys1fW0IIn+VdPLEnqfZZut3Cj3VJpWd6WTdDVsPzGZkpGOZ6+40WD3W3YtB8tEa++X85mY8u+iZ/azszrmrUsPPP7THhtQ+azasrYppRT/F/QvxsyTHNbRz6Y/O5GK3X0983mLb+pavYIi9XGi0cqypr60v8AGv3NxyJNXVWq3/3/13L78De/Y4VrWP+qpp6vDxuzagNKP2883rk+f15vqvqJ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA38f/K+Oj1NYuTIwAAAAASUVORK5CYII=" alt="DLR">
+    </div>
+  </div> -->
+
+  <div id="table" class="row table-editable">
+    <div class="col-12">
+
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th></th>
+            <th class="text-center">Endpoint</th>
+            <th class="text-center">Metodo</th>
+            <th class="text-center">Seguridad</th>
+            <th class="text-center">Tabla</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let data of data; let i = index">
+            <td>{{i+1}}</td>
+            <td class="text-center">
+              <span (keyup)="changeValue(id, 'endpoint', $event)" (blur)="updateData(id, 'endpoint', $event)" contenteditable="true">{{data.endpoint}}</span>
+
+              <span class="float-right">
+                <a class="btn btn-primary" (click)="hideTable()">▲</a>
+                <a class="btn btn-primary" (click)="showTable()">▼</a>
+              </span>
+
+              <div [hidden]="hide" id="table" class="table-editable">
+                
+                <table class="table table-bordered">
+        
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th class="text-center">Endpoint</th>
+                      <th class="text-center">Metodo</th>
+                      <th class="text-center">Propiedad</th>
+                      <th class="text-center">Columna</th>
+                      <th class="text-center">Requerido</th>
+                      <th class="text-center">Tipo</th>
+                      <th class="text-center">Acciones</th>
+                    </tr>
+                  </thead>
+          
+                  <tbody>
+                    <tr *ngFor="let properties of properties; let i = index">
+                      <td>{{i+1}}</td>
+                      <td class="text-center">
+                        <span (keyup)="changeValue(id, 'endpoint', $event)" (blur)="updateData(id, 'endpoint', $event)" contenteditable="true">{{properties.endpoint}}</span>
+                      </td>
+                      <td class="text-center">
+                        <span (keyup)="changeValue(id, 'metodo', $event)" (blur)="updateList(id, 'metodo', $event)" contenteditable="true">{{properties.metodo}}</span>
+                      </td>
+                      <td class="text-center">
+                        <span (keyup)="changeValue(id, 'propiedad', $event)" (blur)="updateList(id, 'propiedad', $event)" contenteditable="true">{{properties.propiedad}}</span>
+                      </td>
+                      <td class="text-center">
+                        <span (keyup)="changeValue(id, 'columna', $event)" (blur)="updateList(id, 'columna', $event)" contenteditable="true">{{properties.columna}}</span>
+                      </td>
+                      <td class="text-center">
+                        <span (keyup)="changeValue(id, 'requerido', $event)" (blur)="updateData(id, 'requerido', $event)" contenteditable="true">{{properties.requerido}}</span>
+                      </td>
+                      <td class="text-center">
+                        <span (keyup)="changeValue(id, 'tipo', $event)" (blur)="updateData(id, 'tipo', $event)" contenteditable="true">{{properties.tipo}}</span>
+                      </td>
+                      <td class="text-center">
+                        <a (click)="deleteProperties(i)" class="btn btn-danger">Borrar</a>
+                      </td>
+                    </tr>
+                  </tbody>
+          
+                </table>
+
+              </div>
+
+            </td>
+            <td class="text-center">
+              <span (keyup)="changeValue(id, 'metodo', $event)" (blur)="updateList(id, 'metodo', $event)" contenteditable="true">{{data.metodo}}</span>
+            </td>
+            <td class="text-center">
+              <span (keyup)="changeValue(id, 'seguridad', $event)" (blur)="updateList(id, 'seguridad', $event)" contenteditable="true">{{data.seguridad}}</span>
+            </td>
+            <td class="text-center">
+              <span (keyup)="changeValue(id, 'tabla', $event)" (blur)="updateList(id, 'tabla', $event)" contenteditable="true">{{data.tabla}}</span>
+            </td>
+            <td class="text-center">
+              <a (click)="addProperties()" class="btn btn-primary">+</a>
+              <a (click)="deleteData(i)" class="btn btn-danger">Borrar</a>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <span class="float-right">
+        <a class="btn btn-primary add" (click)="addData()">+</a>
+      </span>
+
+    </div>
+
+    <!-- <div class="col-sm-4" [hidden]="hideUpdate">
+      <form class="form-horizontal">
+        <h3>Editar Datos:</h3>
+        <div class="form-group">
+          <label for="endpoint" class="col-sm-4">Endpoint</label>
+          <input type="text" class="form-control" id="endpoint" name="endpoint" [(ngModel)]="model2.endpoint" class="col-sm-8">
+        </div>
+        <div class="form-group">
+          <label for="metodo" class="col-sm-4">Metodo</label>
+          <input type="text" class="form-control" id="metodo" name="metodo" [(ngModel)]="model2.metodo" class="col-sm-8">
+        </div>
+        <div class="form-group">
+          <label for="seguridad" class="col-sm-4">Seguridad</label>
+          <input type="text" class="form-control" id="seguridad" name="seguridad" [(ngModel)]="model2.seguridad" class="col-sm-8">
+        </div>
+        <div class="form-group">
+          <label for="tabla" class="col-sm-4">Tabla</label>
+          <input type="text" class="form-control" id="tabla" name="tabla" [(ngModel)]="model2.tabla" class="col-sm-8">
+        </div>
+  
+        <button type="submit" class="btn btn-primary" (click)="updateData()">Editar</button>
+      </form>
+    </div> -->
+  </div>
+</div>
