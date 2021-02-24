@@ -49,14 +49,14 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let data of data; let i = index">
+          <tr *ngFor="let data of datas; let i = index">
             <td>{{i+1}}</td>
             <td class="text-center">
-              <span (keyup)="changeValue(id, 'endpoint', $event)" (blur)="updateData(id, 'endpoint', $event)" contenteditable="true">{{data.endpoint}}</span>
+              <span contenteditable="true">{{data.endpoint}}</span>
 
               <span class="float-right">
-                <a class="btn btn-primary" (click)="hideTable()">▲</a>
-                <a class="btn btn-primary" (click)="showTable()">▼</a>
+                <a class="btn btn-default" (click)="hideTable(i)">▲</a>
+                <a class="btn btn-default" (click)="showTable(i)">▼</a>
               </span>
 
               <div [hidden]="hide" id="table" class="table-editable">
@@ -77,28 +77,28 @@
                   </thead>
           
                   <tbody>
-                    <tr *ngFor="let properties of properties; let i = index">
+                    <tr *ngFor="let property of data.properties; let i = index">
                       <td>{{i+1}}</td>
                       <td class="text-center">
-                        <span (keyup)="changeValue(id, 'endpoint', $event)" (blur)="updateData(id, 'endpoint', $event)" contenteditable="true">{{properties.endpoint}}</span>
+                        <span contenteditable="true">{{property.endpoint}}</span>
                       </td>
                       <td class="text-center">
-                        <span (keyup)="changeValue(id, 'metodo', $event)" (blur)="updateList(id, 'metodo', $event)" contenteditable="true">{{properties.metodo}}</span>
+                        <span contenteditable="true">{{property.metodo}}</span>
                       </td>
                       <td class="text-center">
-                        <span (keyup)="changeValue(id, 'propiedad', $event)" (blur)="updateList(id, 'propiedad', $event)" contenteditable="true">{{properties.propiedad}}</span>
+                        <span contenteditable="true">{{property.propiedad}}</span>
                       </td>
                       <td class="text-center">
-                        <span (keyup)="changeValue(id, 'columna', $event)" (blur)="updateList(id, 'columna', $event)" contenteditable="true">{{properties.columna}}</span>
+                        <span contenteditable="true">{{property.columna}}</span>
                       </td>
                       <td class="text-center">
-                        <span (keyup)="changeValue(id, 'requerido', $event)" (blur)="updateData(id, 'requerido', $event)" contenteditable="true">{{properties.requerido}}</span>
+                        <span contenteditable="true">{{property.requerido}}</span>
                       </td>
                       <td class="text-center">
-                        <span (keyup)="changeValue(id, 'tipo', $event)" (blur)="updateData(id, 'tipo', $event)" contenteditable="true">{{properties.tipo}}</span>
+                        <span contenteditable="true">{{property.tipo}}</span>
                       </td>
                       <td class="text-center">
-                        <a (click)="deleteProperties(i)" class="btn btn-danger">Borrar</a>
+                        <a (click)="deleteProperties(data,property)" class="btn btn-danger">Borrar</a>
                       </td>
                     </tr>
                   </tbody>
@@ -109,17 +109,17 @@
 
             </td>
             <td class="text-center">
-              <span (keyup)="changeValue(id, 'metodo', $event)" (blur)="updateList(id, 'metodo', $event)" contenteditable="true">{{data.metodo}}</span>
+              <span contenteditable="true">{{data.metodo}}</span>
             </td>
             <td class="text-center">
-              <span (keyup)="changeValue(id, 'seguridad', $event)" (blur)="updateList(id, 'seguridad', $event)" contenteditable="true">{{data.seguridad}}</span>
+              <span contenteditable="true">{{data.seguridad}}</span>
             </td>
             <td class="text-center">
-              <span (keyup)="changeValue(id, 'tabla', $event)" (blur)="updateList(id, 'tabla', $event)" contenteditable="true">{{data.tabla}}</span>
+              <span contenteditable="true">{{data.tabla}}</span>
             </td>
             <td class="text-center">
-              <a (click)="addProperties()" class="btn btn-primary">+</a>
-              <a (click)="deleteData(i)" class="btn btn-danger">Borrar</a>
+              <a (click)="addProperties(data)" class="btn btn-primary">+</a>
+              <a (click)="deleteData(i)" class="btn btn-danger">Trash</a>
             </td>
           </tr>
         </tbody>

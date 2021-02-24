@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,40 +9,63 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title:string = 'dlr-proyect';
 
-  data = [
-    {endpoint:"UD", metodo:"UD", seguridad:"UD", tabla:"UD"}
-  ];
-
-  properties = [
-    {endpoint:"UD", metodo:"UD", propiedad:"UD", columna:"UD", requerido:"UD", tipo:"UD"}
-  ]
-
   model:any = {};
-  model2:any = {}
+  fila:any = {};
   hide:boolean = true
 
+  constructor(){
+    this.datas = [
+      {endpoint:"UD", metodo:"UD", seguridad:"UD", tabla:"UD", properties:[
+        { endpoint:'UD', metodo:'UD', propiedad:'UD', columna:'UD', requerido:'UD', tipo:'UD'}
+      ]}
+    ]
+  }
+
   addData():void{
-    this.model = {endpoint:"UD", metodo:"UD", seguridad:"UD", tabla:"UD"};
-    this.data.push(this.model);
+    this.model = {endpoint:"UD", metodo:"UD", seguridad:"UD", tabla:"UD",properties:[]};
+    this.datas.push(this.model);
+    console.log()
   };
 
   deleteData(i):void{
-    this.data.splice(i, 1);
+    this.datas.splice(i, 1);
   };
 
-  addProperties():void{
-    this.model2 = {endpoint:"UD", metodo:"UD", propiedad:"UD", columna:"UD", requerido:"UD", tipo:"UD"};
-    this.properties.push(this.model2);
+  addProperties(value:Endpoint):void{
+    this.fila = {endpoint:"UD", metodo:"UD", propiedad:"UD", columna:"UD", requerido:"UD", tipo:"UD"};
+    value.properties.push(this.fila)
   };
 
-  deleteProperties(i):void{
-    this.properties.splice(i, 1);
+  deleteProperties(value2:Endpoint, value:EndpointProperties):void{
+    let propiedades:EndpointProperties[] = []
+    value2.properties.forEach(k => {
+      if (value != k){
+        propiedades.push(k)
+      }
+    })
+    value2.properties = propiedades
   };
 
-  showTable():void{
+  showTable(i):void{
     this.hide = false;
+    
   }
-  hideTable():void{
+
+  hideTable(i):void{
     this.hide = true
+    
   }
+
+  datas:Endpoint[]
+  
+
+}
+
+interface Endpoint{
+  endpoint:string,  metodo:string, seguridad:string, tabla:string,
+  properties:EndpointProperties[]
+};
+
+interface EndpointProperties{
+  endpoint:string, metodo:string, propiedad:string, columna:string, requerido:string, tipo:string
 }
